@@ -32,16 +32,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Async\Async.xaml.cs">
+      <DependentUpon>Async.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Exception-Handling\YoutubeApi.cs" />
+    <Compile Include="Exception-Handling\YoutubeException.cs" />
     <Compile Include="LINQ\Book.cs" />
     <Compile Include="LINQ\BookRepository.cs" />
     <Compile Include="Program.cs" />
@@ -52,7 +61,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Nullable-Types\" />
+    <Page Include="Async\Async.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using C_Sharp_Advanced_Topics.Exception_Handling;
 using C_Sharp_Advanced_Topics.LINQ;
 
 namespace C_Sharp_Advanced_Topics
@@ -11,14 +13,34 @@ namespace C_Sharp_Advanced_Topics
     {
         static void Main(string[] args)
         {
-            ExtensionMethods();
-            Linq();
-            NullableTypes();
+            //ExtensionMethods();
+            //Linq();
+            //NullableTypes();
+            ExceptionHandling();
+        }
+
+        private static void ExceptionHandling()
+        {
+            //using includes a built in finally block that releases the resource when scope is released
+            //using (var streamReader = new StreamReader(@"c:\file.zip"))
+            //{
+            //    var content = streamReader.ReadToEnd();
+            //}
+
+            //using a custom exception
+            try
+            {
+                var api = new YoutubeApi();
+                var videos = api.GetVideos("mosh");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         static void ExtensionMethods()
         {
-
             string post = "This is supposed to be a very long blog post blah blah blah...";
             var shortenedPost = post.Shorten(5);
             Console.WriteLine(shortenedPost);
